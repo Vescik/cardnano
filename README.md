@@ -1,4 +1,4 @@
-<!--
+
 # Serwis administracyjny dla aplikacji CardNano
 
 ![Fitness Center Management System](link_do_obrazka)
