@@ -1,40 +1,35 @@
-# cardnano
+<!--
+# Serwis administracyjny dla aplikacji CardNano
 
-This template should help get you started developing with Vue 3 in Vite.
+![Fitness Center Management System](link_do_obrazka)
 
-## Recommended IDE Setup
+## Spis treści
+- [O projekcie](#o-projekcie)
+- [Funkcje](#funkcje)
+- [Przebieg pracy](#przebieg-pracy)
+- [Wykorzystane narzędzia](#wykorzystane-narzędzia)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## O projekcie
+ System umożliwia tworzenie profili organizacji, rejestrację i logowanie użytkowników oraz dostęp do panelu administratora.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Funkcje
+- **Autoryzacja użytkownika**:  Użytkownik ma możliwość rejestracji lub logowania do panelu administracyjnego, dzięki wykorzystaniu Firebase Authentication
+- **Zarządzanie organizacjami**: Użytkownicy mogą tworzyć profile organizacji, podając informacje takie jak nazwa organizacji, typ i adres. Profile są przechowywane w bazie danych Firebase Firestore.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- **Autentykacja użytkowników**: Użytkownicy mogą się rejestrować i logować, aby uzyskać dostęp do panelu administratora. Autentykacja jest obsługiwana przy użyciu Firebase Authentication
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- **Panel administratora**: Wyświetla tabelę z danymi organizacji, takimi jak identyfikator, typ, adres i nazwa. Organizacje są pobierane z bazy danych Firebase
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Firebase
+   - Do projektu ze względu na bezpieczeństwo danych nie został dołączony plik konfiguracyjny Firebase zawierający klucze API
+   - Utwórz projekt Firebase i włącz usługi Firestore oraz Authentication.
+   - Zamień konfigurację Firebase w pliku src/db/settings.js na konfigurację swojego projektu.
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
+## Wykorzystane narzędzia
+- Vue.js - framework JavaScript do tworzenia interfejsów użytkownika.
+- Firebase - platforma do budowy aplikacji mobilnych i webowych, która dostarcza infrastrukturę i usługi backendowe, takie jak Firestore do przechowywania danych i Authentication do uwierzytelniania użytkowników.
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
