@@ -1,10 +1,10 @@
 <template>
      <form @submit.prevent="handleSubmit">
-    <input v-model="username" type="text" name="username" />
-    <input v-model="email" type="text" name="email" />
-    <input v-model="password" type="password" id="password" name="password" />
+    <input placeholder="Podaj adres email" v-model="email" type="text" name="email" />
+    <input placeholder="Podaj nazwę użytkownika" v-model="displayName" type="text" name="email" />
+    <input placeholder="Hasło" v-model="password" type="password" id="password" name="password" />
     <div>{{ error }}</div>
-    <button  type="submit">Login</button>
+    <button  type="submit">Zarejestruj</button>
   </form>
 </template>
 
@@ -14,14 +14,23 @@
     const username = ref('')
     const email = ref('')
     const password = ref('')
+    const displayName = ref('')
+    const emit = defineEmits(['signup'])
+
     const { signup,error } = useSignup()
 
     const handleSubmit = async () => {
-      await signup(email.value, password.value)
+      await signup(email.value, password.value,displayName.value)
+        if(!error.value){
+            emit('signup')
+        }
     }
 
 </script>
 
-<style lang="ts" scoped>
-
+<style lang="scss" scoped>
+input{
+  margin: 10px 0;
+  font-size: 1.15rem;
+}
 </style>
